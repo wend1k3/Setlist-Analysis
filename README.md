@@ -1,5 +1,10 @@
 # Setlist Analysis of Hacken Lee's Three Themed Concerts Using Spotify Data
-[English](README.md) | [中文](readme.zh.md)
+![](https://img.shields.io/badge/ReadMe-English-blue?link=https%3A%2F%2Fgithub.com%2Fwend1k3%2FSetlist-Analysis%3Ftab%3Dreadme-ov-file
+) &emsp; ![](https://img.shields.io/badge/ReadMe-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-blue?link=https%3A%2F%2Fgithub.com%2Fwend1k3%2FSetlist-Analysis%2Fblob%2Fmain%2Freadme.zh.md
+)
+![](https://img.shields.io/badge/python-brightgreen
+) ![](https://img.shields.io/badge/jupyter-notebook-brightgreen
+)
 ## Project Introduction
 When 
 
