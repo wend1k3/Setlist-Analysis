@@ -1,6 +1,6 @@
 import json
 
-with open('main.ipynb') as json_file:
+with open('report_eng.ipynb') as json_file:
     data = json.load(json_file)
 
 wordCount = 0
