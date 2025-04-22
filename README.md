@@ -5,51 +5,45 @@
 ![](https://img.shields.io/badge/python-brightgreen
 ) ![](https://img.shields.io/badge/jupyter-notebook-brightgreen
 )
-## Project Introduction
-When 
 
-In this project, I 
-
-
-## Project Goals
-Analyze the track selection from three Hacken Lee's concerts that share the same theme. 
-
-
-
-Specifically, this project explores:
+This project analyzes the setlists of three Hacken Lee concerts that share a common theme — 「弦續」, meaning "continuation". By combining Spotify audio features, track metadata, and concert structure, the project reveals patterns in setlist design across locations and time.
+## Project Overview
+Using data retrieved via the **Spotify Web API** (accessed through the `Spotipy` Python library), this analysis investigates:
 - <em>How are hit songs and lesser-known sidetracks balanced across the setlists?</em>
 - <em>Which albums are most favoured?</em>
 - <em>How do the setlists vary across different concert locations?</em>
 
-### Why Hacken Lee?
-I like him.
+## Motivation
+Hacken Lee is a renowned Cantopop artist whose career spans from the 1980s to the 2020s, with continued success and regular album releases. As a fan and data enthusiast, I was curious to understand how a veteran artist balances musical legacy and audience expectations through data-driven analysis.
 
-## Data Extraction
-There is a Python library for the Spotify Web API called [Spotipy](https://spotipy.readthedocs.io/en/2.25.1/), which I uses for retrieving music data provided by the Spotify platform.
+These three concerts — though held in different regions and under slightly different names — share a unified theme and orchestral collaboration. The consistency provides an ideal basis for comparative analysis.
 
-For <b>authorization</b>, I followed the step on <em>Spotipy</em> documentation page and set environment variables.
-```python
-from spotipy.oauth2 import SpotifyClientCredentials
-spo = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
-```
-The first step is to <b>grab every albums data</b> using `artist_albums`. For example:
-```python
-albums = []
-hacken = spo.artist("https://open.spotify.com/artist/3PV11RNUoGfX9tMN2wVljB")
-album = spo.artist_albums(hacken['id'], include_groups='album',limit=50)
-albums.extend(album['items'])
-while album['next']:
-    album = spo.next(album)
-    albums.extend(album['items'])
-```
-<b>Establish dataframe from `albums`and saving it for later use</b>
-```python
-df = pd.DataFrame(data=albums,columns=['name','id','release_date','album_type'])
-df.to_excel(path+"Hacken_Lee_Albums_Full.xlsx",index=False)
-```
+## Technologies
+- Python
+    - Spotipy
+    - pandas / NumPy
+    - matplotlib
+- Jupyter Notebook
+
+## Data Sources
+- **Spotify Web API** for metadata
+- Manual setlist collection
+
+## Files
+- [report_eng.ipynb](report_eng.ipynb) : full Jupyter notebook with analysis, charts, and commentary
+- example cleaned dataset files are stored inside `/dataset` folders
+
+## Visuals
+### Quadrant Chart
+![](img/23HKquadrant.png)
+![](img/24GZquadrant.png)
+![](img/25OMquadrant.png)
+### Bar Chart
+![](img/23HKbar.png)
+![](img/24GZbar.png)
+![](img/25OMbar.png)
 
 
-
-
-
-## Data Analysis and Visualization
+## Future Work
+- Expand to include more concert over time
+- Interview fans or integrate fan polls for subjective comparison
